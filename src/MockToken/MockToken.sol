@@ -19,6 +19,7 @@ contract MockToken is ERC20, Ownable {
 
     /**
      * Function to mint token
+     * @param to Address that receives the minted tokens
      * @param amount Amount to mint
      */
     function mint(address to, uint256 amount) external onlyOwner {

@@ -308,6 +308,13 @@ contract YieldFarmingPool is ReentrancyGuard, Ownable {
         return activePools;
     }
 
+    /**
+     * @dev Sends any token held by the contract to the owner
+     * @param token Address of the token to withdraw
+     * @param amount Amount of tokens to withdraw
+     *
+     * WARNING: This can move any token in the contract, including user deposits
+     */
     function emergencyWithdraw(address token, uint256 amount) external onlyOwner {
         IERC20(token).safeTransfer(owner(), amount);
     }
